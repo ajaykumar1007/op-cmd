@@ -8,6 +8,7 @@ services:
       - "9642:9642"
     command:
       - "--node.feed.output.addr=0.0.0.0"
+      - "--node.feed.input.url=wss://arb1.arbitrum.io/feed"
       - "--chain.id=${CHAIN_ID}"
     restart: unless-stopped
 

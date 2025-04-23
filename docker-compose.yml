@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  sequencer:
+    image: offchainlabs/nitro-node:v3.5.1-8f247fd
+    entrypoint: ["relay"]
+    ports:
+      - "9642:9642"
+    command:
+      - "--node.feed.output.addr=0.0.0.0"
+      - "--chain.id=${CHAIN_ID}"
+    restart: unless-stopped
+
+  arbitrum-node:
+    image: offchainlabs/nitro-node:v3.5.1-8f247fd
+    container_name: arbitrum-node
+    restart: unless-stopped
+    volumes:
+      - ./prepose/node-config.json:/home/user/.arbitrum/node-config.json
+      - ./${ARBITRUM_VOLUME}:/home/user/.arbitrum
+    ports:
+      - "8449:8449"
+      - "8549:8549"
+    command: --conf.file /home/user/.arbitrum/node-config.json

@@ -16,8 +16,8 @@ services:
     container_name: arbitrum-node
     restart: unless-stopped
     volumes:
-      - ./prepose/node-config.json:/home/user/.arbitrum/node-config.json
-      - ./${ARBITRUM_VOLUME}:/home/user/.arbitrum
+      - ./prepare/node-config.json:/home/user/.arbitrum/node-config.json
+      #- ./${ARBITRUM_VOLUME}:/home/user/.arbitrum
     ports:
       - "8449:8449"
       - "8549:8549"

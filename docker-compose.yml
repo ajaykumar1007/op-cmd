@@ -18,8 +18,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./prepare/node-config.json:/home/user/.arbitrum/node-config.json
-      #- ./${ARBITRUM_VOLUME}:/home/user/.arbitrum
+      - ./${CHAIN_NAME}:/home/user/${CHAIN_NAME}
     ports:
       - "8449:8449"
       - "8549:8549"
-    command: --conf.file /home/user/.arbitrum/node-config.json --node.block-validator.memory-free-limit ""
+    command: --conf.file /home/user/.arbitrum/node-config.json --node.block-validator.memory-free-limit "" --persistent.global-config /home/user/${CHAIN_NAME}

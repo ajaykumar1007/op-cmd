@@ -22,4 +22,4 @@ services:
     ports:
       - "8449:8449"
       - "8549:8549"
-    command: --conf.file /home/user/.arbitrum/node-config.json
+    command: --conf.file /home/user/.arbitrum/node-config.json --node.block-validator.memory-free-limit ""

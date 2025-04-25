@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   sequencer:
     image: offchainlabs/nitro-node:v3.5.1-8f247fd
